@@ -70,6 +70,9 @@ Another of the project's requirements was to create scenarios for each of the ab
     - When the user scrolls to the charts section
     - Then charts visualizing the event details should be displayed
 
+## Serverless Functions
+Another requirement of the project was the use of Serverless Functions. Specifically, this app will employ serverless functions for securely managing user access, obtaining and refreshing OAuth2 tokens, and ensuring the security of interactions between the React based application and the Google Calendar API.
+
 
 
 
