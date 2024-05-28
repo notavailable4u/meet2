@@ -1,15 +1,16 @@
 // src/__tests__/App.test.js
 
 import { render, within } from '@testing-library/react';
-import App from '../App';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
+import App from '../App';
 
 describe('<App /> component', () => {
     let appDom;
     beforeEach(() => {
         appDom = render(<App/>).container.firstChild;
     });
+
    test('renders list of events', () => {
     expect(appDom.querySelector('#event-list')).toBeInTheDocument();
    });
@@ -22,7 +23,6 @@ describe('<App /> component', () => {
     expect(appDom.querySelector('#numberOfEvents')).toBeInTheDocument();
    });
 });
-
 
 
 describe('<App /> integration', () => {
@@ -47,6 +47,7 @@ describe('<App /> integration', () => {
         );
     
         expect(allRenderedEventItems.length).toBe(berlinEvents.length);
+        
         allRenderedEventItems.forEach(event => {
             expect(event.textContent).toContain("Berlin, Germany");
           });
