@@ -15,42 +15,6 @@ export const extractLocations = (events) => {
   const locations = [...new Set(extractedLocations)];
   return locations;
 };
-
-//takes the found accessToken and checks whether it’s a valid token or not
-const checkToken = async (accessToken) => {
-  const response = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  );
-  const result = await response.json();
-  return result;
-};
-
-  const getToken = async (code) => {
-    const encodeCode = encodeURIComponent(code);
-    const response = await fetch(
-      'https://agvly1nrh9.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
-    );
-    const { access_token } = await response.json();
-    access_token && localStorage.setItem("access_token", access_token);
-  
-    return access_token;
-  };
-
-const removeQuery = () => {
-  let newurl;
-  if (window.history.pushState && window.location.pathname) {
-    newurl =
-      window.location.protocol +
-      "//" +
-      window.location.host +
-      window.location.pathname;
-    window.history.pushState("", "", newurl);
-  } else {
-    newurl = window.location.protocol + "//" + window.location.host;
-    window.history.pushState("", "", newurl);
-  }
-};
-
 /**
  *
  * This function will fetch the list of all events
@@ -64,12 +28,12 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url =  "https://agvly1nrh9.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const url = "https://agvly1nrh9.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
       return result.events;
-    } else return null; 
+    } else return null;
   }
 };
 
@@ -93,5 +57,44 @@ export const getAccessToken = async () => {
     return code && getToken(code);
   }
   return accessToken;
-
 };
+
+//takes the found accessToken and checks whether it’s a valid token or not
+const checkToken = async (accessToken) => {
+  const response = await fetch(
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+  );
+  const result = await response.json();
+  return result;
+};
+
+const removeQuery = () => {
+  let newurl;
+  if (window.history.pushState && window.location.pathname) {
+    newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+};
+
+const getToken = async (code) => {
+  const encodeCode = encodeURIComponent(code);
+  const response = await fetch(
+    'https://agvly1nrh9.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+  );
+  const { access_token } = await response.json();
+  access_token && localStorage.setItem("access_token", access_token);
+
+  return access_token;
+};
+
+
+
+
+

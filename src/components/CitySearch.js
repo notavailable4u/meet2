@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const CitySearch = ({allLocations, setCurrentCity /*setInfoAlert*/}) => {
+const CitySearch = ({allLocations, setCurrentCity /*, setInfoAlert */}) => {
     const [showSuggestion, setShowSuggestion] = useState(false);
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([]);
@@ -23,7 +23,7 @@ const CitySearch = ({allLocations, setCurrentCity /*setInfoAlert*/}) => {
         // } else {
         //   infoText = ""
         // }
-        // /*setInfoAlert*/(infoText);
+        // setInfoAlert(infoText);
     
     }
     const handleItemClicked = (event) => {
@@ -31,6 +31,7 @@ const CitySearch = ({allLocations, setCurrentCity /*setInfoAlert*/}) => {
       setQuery(value);
       setShowSuggestion(false);
       setCurrentCity(value);
+      //setInfoAlert("");
     };
   //   const handleClick = (suggestion) => {
   //     setQuery(suggestion);

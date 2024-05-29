@@ -1,43 +1,34 @@
-import { useState } from "react";
+//import { useState } from "react";
+import React from "react";
 
-const NumberOfEvents = ({ setNumberOfEvents, setInfoAlert, setErrorAlert, setWarningAlert }) => {
-  const [eventNumber, setEventNumber] = useState('32');
+const NumberOfEvents = ({setCurrentNOE /*, setErrorAlert*/ }) => {
 
-  const handleInputChange = (event) => {
+  //const [number, setNumber] = useState(32);
+
+  const handleInputChanged = (event) => {
     const value = event.target.value;
-    const parsedValue = parseInt(value, 10);
-
-    let infoText;
-    if (isNaN(value) || value <= 0) {
-      infoText = 'Number of events cannot be negative';
-      setErrorAlert(infoText);
-    } else {
-      infoText = '';
-      setErrorAlert(infoText);
-      setNumberOfEvents(value);
-    }
-
-    let infoTextNAN;
-    if (isNaN(parsedValue)) {
-      infoTextNAN = "Please enter a valid number";
-      setInfoAlert(infoTextNAN);
-    } else {
-      infoTextNAN = '';
-      setInfoAlert(infoTextNAN);
-      setNumberOfEvents(parsedValue);
-    }
-
-    setEventNumber(value);
+    //setNumber(value);
+    setCurrentNOE(value);
+        // let errorText;
+        // if (isNaN(value) || value <= 0) {
+        //   errorText = "Minimum 1 is required";
+        //   setErrorAlert(errorText);
+        // } else {
+        //   setCurrentNOE(value);
+        //   errorText = "";
+        //   setErrorAlert(errorText);
+        // }
   }
 
   return (
-    <div id="numberOfEvents">
-      <label htmlFor="eventNumberInput">Number of Events</label>
+    <div id="number-of-events">
+      <label htmlFor="number-of-events-input">Number of Events: </label>
       <input
         type="text"
-        id="eventNumberInput"
-        value={eventNumber}
-        onChange={handleInputChange}
+        id="number-of-events-input"
+        className="number-of-events-input"
+        defaultValue="32"
+        onChange={handleInputChanged}
       />
     </div>
   );

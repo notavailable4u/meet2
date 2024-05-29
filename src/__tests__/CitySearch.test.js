@@ -10,7 +10,7 @@ describe('<CitySearch /> component', () => {
       //const setInfoAlert = jest.fn();
         CitySearchComponent = render(<CitySearch 
           allLocations={[]}
-          // setCurrentCity={() => { }}
+          setCurrentCity={() => { }}
           //  setInfoAlert={setInfoAlert}
         />);
     })
