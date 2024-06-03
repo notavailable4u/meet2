@@ -19,10 +19,22 @@ export const extractLocations = (events) => {
  *
  * This function will fetch the list of all events
  */
+
 export const getEvents = async () => {
   if (window.location.href.startsWith('http://localhost')) {
     return mockData;
   }
+
+
+/* wrong code from 4.6
+export const getEvents = async () => {
+  NProgress.start();
+
+  if (window.location.href.startsWith("http://localhost")) {
+    NProgress.done();
+    return mockData;
+  }
+  */
 
   const token = await getAccessToken();
 
