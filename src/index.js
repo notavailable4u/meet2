@@ -8,11 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import * as atatus from 'atatus-spa';
 atatus.config('55559dd802804408a14605eec45e04e5').install();
 
-import * as atatus from 'atatus-js';
-atatus.config('55559dd802804408a14605eec45e04e5').install();
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -31,4 +26,4 @@ serviceWorkerRegistration.unregister();
 reportWebVitals();
 
 atatus.notify(new Error('Test Atatus Setup'));
-atatus.notify(new Error('Test Atatus Setup'));
+
