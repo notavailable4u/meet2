@@ -1,23 +1,23 @@
-//import { useState } from "react";
+import { useState } from "react";
 import React from "react";
 
-const NumberOfEvents = ({setCurrentNOE /*, setErrorAlert*/ }) => {
+const NumberOfEvents = ({setCurrentNOE, setErrorAlert }) => {
 
-  //const [number, setNumber] = useState(32);
+  const [number, setNumber] = useState(32);
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
-    //setNumber(value);
+    setNumber(value);
     setCurrentNOE(value);
-        // let errorText;
-        // if (isNaN(value) || value <= 0) {
-        //   errorText = "Minimum 1 is required";
-        //   setErrorAlert(errorText);
-        // } else {
-        //   setCurrentNOE(value);
-        //   errorText = "";
-        //   setErrorAlert(errorText);
-        // }
+        let errorText;
+        if (isNaN(value) || value <= 0) {
+          errorText = "Only positive numbers are allowed";
+          setErrorAlert(errorText);
+        } else {
+          setCurrentNOE(value);
+          errorText = "";
+          setErrorAlert(errorText);
+        }
   }
 
   return (
@@ -27,6 +27,7 @@ const NumberOfEvents = ({setCurrentNOE /*, setErrorAlert*/ }) => {
         type="text"
         id="number-of-events-input"
         className="number-of-events-input"
+        value={number}
         defaultValue="32"
         onChange={handleInputChanged}
       />

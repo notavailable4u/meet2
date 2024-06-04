@@ -12,6 +12,7 @@ describe('<CitySearch /> component', () => {
           allLocations={[]}
           setCurrentCity={() => { }}
           //  setInfoAlert={setInfoAlert}
+          setInfoAlert={() => { }}
         />);
     })
 
@@ -43,7 +44,7 @@ describe('<CitySearch /> component', () => {
     const allLocations = extractLocations(allEvents);
     CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
     // CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} 
-    // setInfoAlert={() => { }}/>);
+    setInfoAlert={() => { }}/>);
 
     //User types 'Berlin' in textbox
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
@@ -70,7 +71,7 @@ describe('<CitySearch /> component', () => {
     CitySearchComponent.rerender(<CitySearch  
       allLocations={allLocations}
       setCurrentCity={() => { }} 
-      /*setInfoAlert={setInfoAlert}*/
+      setInfoAlert={setInfoAlert}
        />);
 
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
