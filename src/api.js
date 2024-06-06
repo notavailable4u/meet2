@@ -24,9 +24,13 @@ export const getEvents = async () => {
   if (window.location.href.startsWith('http://localhost')) {
     return mockData;
   }
+  
+  if (!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    return events?JSON.parse(events):[];
+  }
 
-
-/* wrong code from 4.6
+/* wrong code from 4.6 and again in 4.9
 export const getEvents = async () => {
   NProgress.start();
 
@@ -44,6 +48,7 @@ export const getEvents = async () => {
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
+      localStorage.setItem("lastEvents", JSON.stringify(result.events));
       return result.events;
     } else return null;
   }
