@@ -17,6 +17,10 @@ p {
   margin: 5px 0;
 }
 
+h2 {
+  color:seagreen;
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
@@ -28,6 +32,11 @@ input[type="number"] {
   align-self: center;
   height: 38px;
   margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+  outline: seagreen;
+  background-color: #70A788;
 }
 
 .city {
@@ -90,7 +99,9 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  background-color: #70A788;;
+  color: #000;
+  background-color: #70A788;
+  transition: all 0.1s ease-out;
 }
 
 .alerts-container {
