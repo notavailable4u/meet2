@@ -17,8 +17,9 @@ p {
   margin: 5px 0;
 }
 
-h2 {
+h2, h3 {
   color:seagreen;
+  margin-bottom: 4px;
 }
 
 input[type="text"],
@@ -32,6 +33,7 @@ input[type="number"] {
   align-self: center;
   height: 38px;
   margin-bottom: 20px;
+  margin-left: 4px;
 }
 
 input[type="text"]:focus {
@@ -64,7 +66,7 @@ input[type="text"]:focus {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #F5F5F4;
   cursor: default;
 }
 
@@ -74,7 +76,8 @@ input[type="text"]:focus {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+background-color: #70A788;
+cursor: pointer;
 }
 
 .event {
