@@ -117,9 +117,15 @@ cursor: pointer;
 
 .charts-container{
   margin-bottom: 5px;
+  margin-top: 3px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.eventsTitle {
+  padding-top: 60px;
+}
+
 
 /* media queries */
 @media (max-width: 768px) {

@@ -52,7 +52,9 @@ const App = () => {
         <EventGenresChart events={events} />
         <CityEventsChart allLocations={allLocations} events={events}/>
       </div>
+      <div className='eventsTitle'>
       <h3>Event Details</h3>
+      </div>
       <EventList events={events} />
     </div>
   );
