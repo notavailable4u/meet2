@@ -1,14 +1,13 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, within, waitFor } from '@testing-library/react';
 import App from '../App';
-import { getEvents } from '../mock-data';
+import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
-import CitySearch from '../components/CitySearch';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
-
+    //Scenario 1
     test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
         given('user hasn’t searched for any city', () => {
 
@@ -30,13 +29,13 @@ defineFeature(feature, test => {
             });
         });
     });
-
+    //Scenario 2
     test('User should see a list of suggestions when they search for a city.', ({ given, when, then }) => {
         let AppComponent;
         given('the main page is open', () => {
             AppComponent = render(<App />);
-
         });
+
         let CitySearchDom;
         when('user starts typing in the city textbox', async () => {
             const user = userEvent.setup();
@@ -46,13 +45,13 @@ defineFeature(feature, test => {
             await user.type(citySearchInput, "Berlin");
         });
 
-        then('the user should recieve a list of cities (suggestions) that match what they’ve typed', async () => {
+        then('the user should receive a list of cities (suggestions) that match what they’ve typed', async () => {
             const suggestionListItem = within(CitySearchDom).queryAllByRole('listitem');
             expect(suggestionListItem).toHaveLength(2);
         });
     });
 
-
+    //Scenario 3
     test('User can select a city from the suggested list.', ({ given, and, when, then }) => {
         let AppComponent;
         let AppDOM; 
@@ -85,7 +84,6 @@ defineFeature(feature, test => {
             const EventListDOM = AppDOM.querySelector('#event-list');
             const EventListItems = within(EventListDOM).queryAllByRole('listitem');
             const allEvents = await getEvents();
-      
             // filtering the list of all events down to events located in Germany
             // citySearchInput.value should have the value "Berlin, Germany" at this point
             const berlinEvents = allEvents.filter(event => event.location === citySearchInput.value)
