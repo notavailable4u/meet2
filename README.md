@@ -5,13 +5,16 @@ This project was created as part of the curriculum for the Full Stack Web Develo
 
 [^1]: If you are considering enrolling in the Full Stack Web Development Program at Career Foundry, I cannot strongly enough caution you to NOT ENROLL. The lessons are filled with so much deprecated code and blatant errors that it is criminal. Feel free to contact me if you would like more detailed information.
 
-## Project Key Features
+## Project Key Feature Requirements
 + Filter Events by City.
 + Show/Hide Event Details.
 + Specify Number of Events. 
 + Use the App When Offline.
 + Add an App Shortcut to the Home Screen.
 + Display Charts Visualizing Event Details.
+
+## Serverless Functions Requirement
+Specifically, this app will employ AWS Lambda serverless functions for securely managing user access, obtaining and refreshing OAuth2 tokens, and ensuring the security of interactions between the React based application and the Google Calendar API.
 
 ## User Stories
 One of the projects requirements was to turn the above Features into User Stories, which can viewed below:
@@ -72,8 +75,7 @@ Another of the project's requirements was to create scenarios for each of the ab
     - When the user scrolls to the charts section
     - Then charts visualizing the event details should be displayed
 
-## Serverless Functions
-Another requirement of the project was the use of Serverless Functions. Specifically, this app will employ serverless functions for securely managing user access, obtaining and refreshing OAuth2 tokens, and ensuring the security of interactions between the React based application and the Google Calendar API.
+
 
 
 
